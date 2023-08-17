@@ -1,4 +1,4 @@
-name: Java CI - rodam v2 main
+name: Java CI feature-pipe-rodo
 
 on: 
   workflow_call:
