@@ -17,8 +17,11 @@ jobs:
       with:
        java-version: '11'
        distribution: 'zulu'
-       
+
+    - name: Secret
+      run:  echo ${{ secrets.TOKEN_SONARCLOUD }}
+      
     - name: compile Gradle
       run: |
        chmod +x gradlew
-       ./gradlew build
+       ./gradlew sonar -Dsonar.token= ${{ secrets.TOKEN_SONARCLOUD }}
