@@ -26,7 +26,6 @@ jobs:
         chmod +x gradlew
         ./gradlew build -x test
     
-
     - name: Analisis SonarCloud
       run: |
         chmod +x gradlew 
