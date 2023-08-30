@@ -1,0 +1,33 @@
+name: devops-pipe-rodo -- feature-pipe-rodo - main.yml v1
+
+
+on:
+  workflow_call:
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v3.5.3
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3.12.0
+      with:
+        java-version: '11'
+        distribution: 'zulu'
+
+    - name: Secret
+      run: echo ${{ secrets.TOKEN_SONARCLOUD }}
+    
+    - name: Compile Gradle
+      run: |
+        chmod +x gradlew
+        ./gradlew build -x test
+    
+
+    - name: Analisis SonarCloud
+      run: |
+        chmod +x gradlew 
+        ./gradlew build sonar -Dsonar.token=${{ secrets.TOKEN_SONARCLOUD }}
