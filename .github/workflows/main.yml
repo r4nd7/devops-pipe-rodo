@@ -1,4 +1,4 @@
-name: Java CI devops-pipe-rodo/feature-pipe-rodo  v1
+name: Java CI devops-pipe-rodo/feature-pipe-rodo  v2
 
 on: 
   workflow_call:
